@@ -138,6 +138,7 @@ GameObject:
   - component: {fileID: 194592935}
   - component: {fileID: 194592936}
   - component: {fileID: 194592937}
+  - component: {fileID: 194592938}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Untagged
@@ -281,8 +282,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5ee4b524dec6604094420e688f37b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 0.2
+  _playerInput: {fileID: 194592937}
+  _moveSpeed: 5
+  forceJump: 1
+  _RigidBody: {fileID: 194592931}
   _jumpForce: 1
+  OnMovementStopped:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 194592936}
+        m_TargetAssemblyTypeName: Movemente2D, Assembly-CSharp
+        m_MethodName: StopMoving
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnMovementStarted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 194592936}
+        m_TargetAssemblyTypeName: Movemente2D, Assembly-CSharp
+        m_MethodName: StartMoving
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &194592937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -312,7 +346,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 194592936}
         m_TargetAssemblyTypeName: Movemente2D, Assembly-CSharp
-        m_MethodName: MoveBody
+        m_MethodName: SetDirection
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -334,6 +368,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 194592938}
+        m_TargetAssemblyTypeName: FlipSprite, Assembly-CSharp
+        m_MethodName: Flip
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 9b87c7e8-416c-40d0-919d-98fa9166fd22
     m_ActionName: Default/Axis2D[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/leftArrow,/Keyboard/downArrow,/Keyboard/rightArrow]
   m_NeverAutoSwitchControlSchemes: 0
@@ -341,6 +387,19 @@ MonoBehaviour:
   m_DefaultActionMap: Default
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &194592938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 194592930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fac73db854195849a83b30845a3fe89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spriteRenderer: {fileID: 194592933}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
