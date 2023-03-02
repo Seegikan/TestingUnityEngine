@@ -139,6 +139,7 @@ GameObject:
   - component: {fileID: 194592936}
   - component: {fileID: 194592937}
   - component: {fileID: 194592938}
+  - component: {fileID: 194592939}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Untagged
@@ -284,8 +285,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerInput: {fileID: 194592937}
   _moveSpeed: 5
-  forceJump: 1
-  _RigidBody: {fileID: 194592931}
   _jumpForce: 1
   OnMovementStopped:
     m_PersistentCalls:
@@ -382,6 +381,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 9b87c7e8-416c-40d0-919d-98fa9166fd22
     m_ActionName: Default/Axis2D[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/leftArrow,/Keyboard/downArrow,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: bdf8a519-3331-4c59-9103-1d5e6f7a3cd7
+    m_ActionName: Default/Jump[/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Default
@@ -400,6 +403,84 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spriteRenderer: {fileID: 194592933}
+--- !u!114 &194592939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 194592930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cd43c19718f26241ad1afbe5cf475c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _RigidBody: {fileID: 194592931}
+  _playerInput: {fileID: 194592937}
+  forceJump: 2.8
+  Jumped:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 194592939}
+        m_TargetAssemblyTypeName: Jump, Assembly-CSharp
+        m_MethodName: StartJumping
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  JumpStopped:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 194592939}
+        m_TargetAssemblyTypeName: Jump, Assembly-CSharp
+        m_MethodName: StopJumping
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  Fell:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 194592939}
+        m_TargetAssemblyTypeName: Jump, Assembly-CSharp
+        m_MethodName: ChechFalling
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 194592939}
+        m_TargetAssemblyTypeName: Jump, Assembly-CSharp
+        m_MethodName: CheckGrounding
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  groundRayDistance: 0.2
+  groundRayPosition: {x: 0, y: -0.5, z: 0}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  rayColor: {r: 0.8679245, g: 0, b: 0.842651, a: 1}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -639,7 +720,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1184902137}
   - component: {fileID: 1184902136}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -688,7 +769,7 @@ GameObject:
   - component: {fileID: 1407996826}
   - component: {fileID: 1407996825}
   - component: {fileID: 1407996824}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}

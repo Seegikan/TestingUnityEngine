@@ -35,6 +35,15 @@ public partial class @InputMapping: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Jump"",
+                    ""type"": ""Button"",
+                    ""id"": ""bdf8a519-3331-4c59-9103-1d5e6f7a3cd7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -158,6 +167,28 @@ public partial class @InputMapping: IInputActionCollection2, IDisposable
                     ""action"": ""Axis2D"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""28878de5-4029-43e6-932c-0dae11f2b9a1"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a2783bc0-336f-4bcf-975d-34f0781023b1"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -167,6 +198,7 @@ public partial class @InputMapping: IInputActionCollection2, IDisposable
         // Default
         m_Default = asset.FindActionMap("Default", throwIfNotFound: true);
         m_Default_Axis2D = m_Default.FindAction("Axis2D", throwIfNotFound: true);
+        m_Default_Jump = m_Default.FindAction("Jump", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -229,11 +261,13 @@ public partial class @InputMapping: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Default;
     private List<IDefaultActions> m_DefaultActionsCallbackInterfaces = new List<IDefaultActions>();
     private readonly InputAction m_Default_Axis2D;
+    private readonly InputAction m_Default_Jump;
     public struct DefaultActions
     {
         private @InputMapping m_Wrapper;
         public DefaultActions(@InputMapping wrapper) { m_Wrapper = wrapper; }
         public InputAction @Axis2D => m_Wrapper.m_Default_Axis2D;
+        public InputAction @Jump => m_Wrapper.m_Default_Jump;
         public InputActionMap Get() { return m_Wrapper.m_Default; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -246,6 +280,9 @@ public partial class @InputMapping: IInputActionCollection2, IDisposable
             @Axis2D.started += instance.OnAxis2D;
             @Axis2D.performed += instance.OnAxis2D;
             @Axis2D.canceled += instance.OnAxis2D;
+            @Jump.started += instance.OnJump;
+            @Jump.performed += instance.OnJump;
+            @Jump.canceled += instance.OnJump;
         }
 
         private void UnregisterCallbacks(IDefaultActions instance)
@@ -253,6 +290,9 @@ public partial class @InputMapping: IInputActionCollection2, IDisposable
             @Axis2D.started -= instance.OnAxis2D;
             @Axis2D.performed -= instance.OnAxis2D;
             @Axis2D.canceled -= instance.OnAxis2D;
+            @Jump.started -= instance.OnJump;
+            @Jump.performed -= instance.OnJump;
+            @Jump.canceled -= instance.OnJump;
         }
 
         public void RemoveCallbacks(IDefaultActions instance)
@@ -273,5 +313,6 @@ public partial class @InputMapping: IInputActionCollection2, IDisposable
     public interface IDefaultActions
     {
         void OnAxis2D(InputAction.CallbackContext context);
+        void OnJump(InputAction.CallbackContext context);
     }
 }

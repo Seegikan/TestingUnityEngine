@@ -14,11 +14,9 @@ public class Movemente2D : MonoBehaviour
     [SerializeField]
     private float _moveSpeed = 0f;
 
-    [SerializeField]
-    private float forceJump = 0f;
+ 
 
-    [SerializeField]
-    private Rigidbody2D _RigidBody;
+  
 
     [SerializeField]
     private float _jumpForce = 0f;
@@ -59,7 +57,6 @@ public class Movemente2D : MonoBehaviour
     //public void MoveBody(InputAction.CallbackContext ctx) => transform.Translate(Vector2.right * ctx.ReadValue<Vector2>().x * _moveSpeed * Time.fixedDeltaTime);
 
     private void MoveBody() => transform.Translate(Vector2.right * _direction.x * _moveSpeed * Time.deltaTime);
-    public void JumpBody(InputAction.CallbackContext ctx) => _RigidBody.AddForce(Vector2.up * ctx.ReadValue<Vector2>().y  * forceJump); //transform.Translate(Vector2.up * ctx.ReadValue<Vector2>().y * _moveSpeed * Time.deltaTime);
 
 
    
