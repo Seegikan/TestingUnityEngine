@@ -1,7 +1,11 @@
 
-public interface IAirController
+namespace Jomp
 {
-    public bool Jumping { set; get; }
-    public bool IsFalling { set; get; }
-    public bool IsGrounding { set; get; }
+    public interface IAirController
+    {
+        public bool Jumping { set; get; }
+        public bool IsFalling { set; get; }
+        public bool IsGrounding { set; get; }
+    }
 }
+

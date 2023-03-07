@@ -1,17 +1,20 @@
 using UnityEngine;
 
-public interface IGroundingChecker 
+namespace Jomp
 {
-    //Raycasting
-    
-    float groundRayDistance { set; get; }
+    public interface IGroundingChecker
+    {
+        //Raycasting
 
-    Vector3 groundRayPosition { set; get; }
+        float groundRayDistance { set; get; }
 
-    LayerMask groundLayer { set; get; }
+        Vector3 groundRayPosition { set; get; }
 
-    Color rayColor { set; get; }
+        LayerMask groundLayer { set; get; }
 
-    bool GroundingByRaycast(Vector3 objectPosition);
+        Color rayColor { set; get; }
+
+        bool GroundingByRaycast(Vector3 objectPosition);
+    }
 }
 
