@@ -3,7 +3,14 @@ VisualElement {
 
 .basic-text {
     -unity-text-align: upper-center;
-    font-size: 24px;
-    color: rgba(154, 147, 64, 255);
+    font-size: 50px;
+    color: rgb(154, 147, 64);
     padding-top: 15px;
+    -unity-text-outline-color: rgba(44, 101, 38, 255);
+    -unity-text-outline-width: 0.1px;
+    text-shadow: 0 0 2px rgba(0, 0, 0, 255);
+    letter-spacing: 2px;
+}
+
+.AnchorRight {
 }
