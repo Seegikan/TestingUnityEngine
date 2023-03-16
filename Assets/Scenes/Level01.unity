@@ -123,11 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!4 &194592934 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1699257828469222392, guid: d0d49ce1f24cd9b4db0abc6e5936113c, type: 3}
-  m_PrefabInstance: {fileID: 1699257828275710814}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -436,6 +431,46 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &676629771 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7555579783255702142, guid: 5eb5206f3bcb8be4d9fee5c010051c7a, type: 3}
+  m_PrefabInstance: {fileID: 8396207320297361819}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &676629778 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7555579783255702138, guid: 5eb5206f3bcb8be4d9fee5c010051c7a, type: 3}
+  m_PrefabInstance: {fileID: 8396207320297361819}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &676629779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 676629771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: d18a4f7e851b4624092b160fd0f8a1b2, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Default
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &1083312660
 GameObject:
   m_ObjectHideFlags: 3
@@ -4552,8 +4587,8 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 10
   m_StandbyUpdate: 2
-  m_LookAt: {fileID: 194592934}
-  m_Follow: {fileID: 194592934}
+  m_LookAt: {fileID: 676629778}
+  m_Follow: {fileID: 676629778}
   m_Lens:
     FieldOfView: 34
     OrthographicSize: 5
@@ -4756,6 +4791,20 @@ PrefabInstance:
     - target: {fileID: 7555579783255702138, guid: 5eb5206f3bcb8be4d9fee5c010051c7a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7555579783255702140, guid: 5eb5206f3bcb8be4d9fee5c010051c7a, type: 3}
+      propertyPath: _data._json
+      value: '{"declarations":{"Kind":"Object","collection":{"$content":[{"name":"movement","value":{"$content":0,"$type":"System.Int32"},"typeHandle":{"Identification":"System.Int32,
+        mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089","$version":"A"},"$version":"A"},{"name":"movespeed","value":{"$content":5.0,"$type":"System.Single"},"typeHandle":{"Identification":"System.Single,
+        mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089","$version":"A"},"$version":"A"}],"$version":"A"},"$version":"A"}}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7555579783255702141, guid: 5eb5206f3bcb8be4d9fee5c010051c7a, type: 3}
+      propertyPath: _data._json
+      value: '{"nest":{"source":"Macro","macro":0,"embed":null}}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7555579783255702141, guid: 5eb5206f3bcb8be4d9fee5c010051c7a, type: 3}
+      propertyPath: _data._objectReferences.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7555579783255702142, guid: 5eb5206f3bcb8be4d9fee5c010051c7a, type: 3}
       propertyPath: m_Name
